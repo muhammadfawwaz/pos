@@ -1,10 +1,12 @@
 const db = require('../models/db')
 
+exports.tesSession = (req,res) => {
+    res.json(req.session)
+}
+
 exports.processLogin = (req,res) => {
     var email = req.body.email
     var password = req.body.password
-
-    console.log(req.session.email)
 
     if(req.session.email) {
         res.json({
