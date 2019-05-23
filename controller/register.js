@@ -11,7 +11,10 @@ exports.processRegister = (req,res) => {
             username: username,
             password: password
         })
-    
         return res.send(JSON.stringify(ins))
     });
+
+    db.Owner.findAll().then(x => {
+        console.log(x)
+    })
 }
