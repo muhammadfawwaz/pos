@@ -1,0 +1,15 @@
+const db = require('../models/db')
+
+exports.processRegister = (req,res) => {
+    var email = req.body.email
+    var username = req.body.username
+    var password = req.body.password
+
+    var ins = db.Owner.create({
+        email,
+        username,
+        password,
+    })
+
+    res.send(JSON.stringify(ins))
+}
