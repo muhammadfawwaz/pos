@@ -7,9 +7,9 @@ exports.processRegister = (req,res) => {
 
     db.Owner.sync({force: false}).then(function () {
         var ins = db.Owner.create({
-            email,
-            username,
-            password,
+            email: email,
+            username: username,
+            password: password
         })
     
         return res.send(JSON.stringify(ins))
