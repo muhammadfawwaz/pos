@@ -4,7 +4,7 @@ exports.processLogin = (req,res) => {
     var email = req.body.email
     var password = req.body.password
 
-    console.log(req.session)
+    console.log(req.session.email)
 
     if(req.session.email) {
         res.json({
@@ -29,7 +29,7 @@ exports.processLogin = (req,res) => {
                 else {
                     res.json({
                         status: 401,
-                        message: "Email or Password are wrong"
+                        message: "Email or Password are wronggg"
                     })
                 }
             }
