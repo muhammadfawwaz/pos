@@ -12,7 +12,9 @@ exports.processLogin = (req,res) => {
     }
     else {
         db.Owner.findOne({
-            email: email
+            where: {
+                email: email
+            }
         }).then(result => {
             if(result) {
                 if(password == result.password) {
