@@ -1,3 +1,5 @@
+var db = require('../model/db')
+
 exports.processLogin = (req,res) => {
     var email = req.body.email
     var password = req.body.password
