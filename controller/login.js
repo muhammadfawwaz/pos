@@ -30,6 +30,7 @@ exports.processLogin = (req,res) => {
             else {
                 res.json({
                     status: 401,
+                    token: 0,
                     message: "Email or Password are wronggg"
                 })
             }
@@ -37,6 +38,7 @@ exports.processLogin = (req,res) => {
         else {
             res.json({
                 status: 401,
+                token: 0,
                 message: "Email or Password are wrong"
             })
         }
