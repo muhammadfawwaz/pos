@@ -1,4 +1,4 @@
-var db = require('../model/db')
+const db = require('../models/db')
 
 exports.processLogin = (req,res) => {
     var email = req.body.email
