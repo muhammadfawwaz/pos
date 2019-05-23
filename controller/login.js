@@ -19,7 +19,7 @@ exports.processLogin = (req,res) => {
                 let token = jwt.sign({
                     email: email,
                     password: password
-                }, env.process.SESSION_SECRET,{ expiresIn: '24h'})
+                },process.env.SESSION_SECRET,{ expiresIn: '24h'})
             
                 res.json({
                     status: 200,
