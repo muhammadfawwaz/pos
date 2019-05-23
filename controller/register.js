@@ -5,7 +5,7 @@ exports.processRegister = (req,res) => {
     var username = req.body.username
     var password = req.body.password
 
-    User.sync({force: true}).then(function () {
+    db.Owner.sync({force: false}).then(function () {
         var ins = db.Owner.create({
             email,
             username,
