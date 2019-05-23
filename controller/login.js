@@ -4,6 +4,8 @@ exports.processLogin = (req,res) => {
     var email = req.body.email
     var password = req.body.password
 
+    console.log(req.session)
+
     if(req.session.email) {
         res.json({
             status: 200,
