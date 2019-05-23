@@ -28,8 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 * 60 * 24 }}))
 
-app.use('/', mid.checkToken ,indexRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRouter);
+app.use('/users', mid.checkToken, usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter)
