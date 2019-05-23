@@ -12,6 +12,8 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout')
 
+var mid = require('./controller/middleware')
+
 var app = express();
 
 // view engine setup
@@ -26,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 * 60 * 24 }}))
 
-app.use('/', indexRouter);
+app.use('/', mid.checkToken ,indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
