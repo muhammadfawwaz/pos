@@ -18,12 +18,14 @@ exports.addCashier = (req,res) => {
     var email = req.body.email
     var name = req.body.name
     var password = req.body.password
+    var emailOwner = req.body.emailOwner
 
     // db.Cashier.sync({force: false}).then(function () {
         db.Cashier.create({
             email: email,
             name: name,
-            password: password
+            password: password,
+            emailOwner: emailOwner
         }).then(result => {
             return res.json({
                 status: 200,
