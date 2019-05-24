@@ -45,16 +45,19 @@ var Trans = sequelize.define('transaction', {
       type: Sequelize.ARRAY(Sequelize.STRING),
   },
   count: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
+      type: Sequelize.ARRAY(Sequelize.INTEGER),
   },
-  totalCount: {
-      type: Sequelize.STRING,
+  price: {
+      type: Sequelize.ARRAY(Sequelize.INTEGER),
+  },
+  total: {
+      type: Sequelize.INTEGER,
   },
   money: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
   },
   change: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
   },
 });
 
