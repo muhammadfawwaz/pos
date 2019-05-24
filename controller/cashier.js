@@ -5,7 +5,7 @@ exports.selectCashier = (req,res) => {
 
     db.Cashier.findAll({
         where: {
-            email: email
+            emailOwner: email
         }
     }).then(result => {
         res.json(result)
