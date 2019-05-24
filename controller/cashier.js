@@ -3,12 +3,14 @@ const db = require('../models/db')
 exports.selectCashier = (req,res) => {
     var email = req.body.email
 
-    db.Cashier.findAll({
-        where: {
-            emailOwner: email
-        }
-    }).then(result => {
-        res.json(result)
+    db.Cashier.sync({force: true}).then(function () {
+        db.Cashier.findAll({
+            where: {
+                emailOwner: email
+            }
+        }).then(result => {
+            res.json(result)
+        })
     })
 }
 
