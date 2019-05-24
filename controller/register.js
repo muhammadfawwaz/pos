@@ -10,6 +10,16 @@ exports.processRegister = (req,res) => {
         name: name,
         password: password
     }).then(result => {
-        return res.json(result)
+        return res.json({
+            status: 200,
+            email: email,
+            message: 'success'
+        })
+    }).catch(err => {
+        return res.json({
+            status: 401,
+            email: email,
+            message: err
+        })
     })
 }
