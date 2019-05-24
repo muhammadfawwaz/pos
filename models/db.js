@@ -38,6 +38,9 @@ var Cashier = sequelize.define('cashier', {
 });
 
 var Trans = sequelize.define('transaction', {
+  ownerEmail: {
+      type: Sequelize.STRING,
+  },
   cashierEmail: {
       type: Sequelize.STRING,
   },
