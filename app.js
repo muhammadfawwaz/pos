@@ -10,7 +10,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout')
+var logoutRouter = require('./routes/logout');
+var cashierRouter = require('./routes/cashier');
 
 var mid = require('./controller/middleware')
 
@@ -32,7 +33,8 @@ app.use('/', indexRouter);
 app.use('/users', mid.checkToken, usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/logout', logoutRouter)
+app.use('/logout', logoutRouter);
+app.use('/cashier', cashierRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
