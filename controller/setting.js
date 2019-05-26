@@ -21,11 +21,11 @@ exports.select = (req,res) => {
 }
 
 exports.update = (req,res) => {
-    console.log(req.body)
+    var b = req.body
 
-    var email = req.body.email
-    var store = req.body.store
-    var addr = req.body.address
+    var email = b.email
+    var store = b.store
+    var addr = b.address
 
     console.log(email, store, addr)
 
