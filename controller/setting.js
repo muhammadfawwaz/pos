@@ -23,7 +23,6 @@ exports.select = (req,res) => {
 exports.update = (req,res) => {
     var b = req.body
     var a = JSON.stringify(b)
-    b = JSON.parse(a)
     console.log(b,a,a.email)
 
     var email = b.email
