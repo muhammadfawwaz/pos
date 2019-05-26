@@ -38,7 +38,10 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/cashier', cashierRouter);
 app.use('/log', logRouter);
-app.use('/setting', settingRouter);
+app.use('/setting',(req,res,next) => {
+  app.use(bodyParser.json({ type: 'application/*+json' }))
+  next()
+} ,settingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
