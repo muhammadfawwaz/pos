@@ -25,7 +25,7 @@ exports.update = (req,res) => {
     var store = JSON.parse(req.body).store
     var addr = JSON.parse(req.body).addr
 
-    console.log(req.body)
+    console.log(email, store, addr)
 
     db.Setting.update({
         store: store,
