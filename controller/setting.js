@@ -22,8 +22,9 @@ exports.select = (req,res) => {
 
 exports.update = (req,res) => {
     var b = req.body
-    var a = JSON.parse(b)
-    console.log(b,a,a.email)
+    var a = b.toString()
+    var c = JSON.parse(a)
+    console.log(b,a,c,c.email)
 
     var email = b.email
     var store = b.store
