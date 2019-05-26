@@ -21,7 +21,7 @@ exports.select = (req,res) => {
 }
 
 exports.update = (req,res) => {
-    console.log(typeof(req.body))
+    console.log(req.body[0])
 
     var email = req.body.email
     var store = req.body.store
