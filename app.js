@@ -3,8 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
-var bodyParser = require('body-parser');
+var session = require('express-session')
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
@@ -39,10 +38,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/cashier', cashierRouter);
 app.use('/log', logRouter);
-app.use('/setting',(req,res,next) => {
-  app.use(bodyParser.json({ type: 'application/*+json' }))
-  next()
-} ,settingRouter);
+app.use('/setting', settingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -22,6 +22,8 @@ exports.select = (req,res) => {
 
 exports.update = (req,res) => {
     var b = req.body
+    var a = Object.create(b)
+    console.log(b,a,a.email)
 
     var email = b.email
     var store = b.store
