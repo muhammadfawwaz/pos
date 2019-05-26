@@ -64,6 +64,20 @@ var Trans = sequelize.define('transaction', {
   },
 });
 
+var Setting = sequelize.define('Set', {
+    email: {
+        type: Sequelize.STRING,
+    },
+    store: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    },
+    address: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    }
+})
+
 exports.Owner = Owner
 exports.Cashier = Cashier
 exports.Trans = Trans
+exports.Setting = Setting
+exports.Sequelize = sequelize

@@ -5,6 +5,14 @@ exports.processRegister = (req,res) => {
     var name = req.body.name
     var password = req.body.password
 
+    db.Setting.sync({force: true}).then(function () {
+        db.Setting.create({
+            email: email,
+            store: [],
+            address: []
+        })
+    })
+
     db.Owner.create({
         email: email,
         name: name,
