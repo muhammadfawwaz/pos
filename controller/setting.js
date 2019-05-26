@@ -25,6 +25,8 @@ exports.update = (req,res) => {
     var store = req.body.store
     var addr = req.body.address
 
+    console.log(email,store,addr)
+
     db.Setting.update({
         store: store,
         address: addr
@@ -37,5 +39,7 @@ exports.update = (req,res) => {
             status: 200,
             message: 'success'
         })
+    }).catch(err => {
+        console.log(err)
     })
 }
