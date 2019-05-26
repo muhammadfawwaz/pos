@@ -21,9 +21,11 @@ exports.select = (req,res) => {
 }
 
 exports.update = (req,res) => {
+    console.log(JSON.parse(req.body).store)
+
     var email = JSON.parse(req.body).email
     var store = JSON.parse(req.body).store
-    var addr = JSON.parse(req.body).addr
+    var addr = JSON.parse(req.body).address
 
     console.log(email, store, addr)
 
