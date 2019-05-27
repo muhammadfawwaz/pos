@@ -43,7 +43,8 @@ exports.update = (req,res) => {
         console.log(result)
         res.json({
             status: 200,
-            message: 'success'
+            message: 'success',
+            email: email
         })
     }).catch(err => {
         console.log(err)
