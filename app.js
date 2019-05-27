@@ -14,6 +14,7 @@ var logoutRouter = require('./routes/logout');
 var cashierRouter = require('./routes/cashier');
 var logRouter = require('./routes/log');
 var settingRouter = require('./routes/setting');
+var transactionRouter = require('./routes/transaction');
 
 var mid = require('./controller/middleware')
 
@@ -39,6 +40,7 @@ app.use('/logout', logoutRouter);
 app.use('/cashier', cashierRouter);
 app.use('/log', logRouter);
 app.use('/setting', settingRouter);
+app.use('/transaction', transactionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
