@@ -25,6 +25,7 @@ exports.processLogin = (req,res) => {
                     status: 200,
                     token: token,
                     email: email,
+                    emailOwner: result.emailOwner,
                     message: 'Logging in success'
                 })
             }
