@@ -38,10 +38,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/cashier', cashierRouter);
 app.use('/log', logRouter);
-app.use('/setting', function(req,res,next) {
-  app.use(express.urlencoded({ extended: true }));
-  next();
-}, settingRouter);
+app.use('/setting', settingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
