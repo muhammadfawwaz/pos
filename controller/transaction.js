@@ -23,6 +23,8 @@ exports.add = (req,res) => {
         res.json({
             status: 200,
             message: 'success',
+            ownerEmail: ownerEmail,
+            cashierEmail: cashierEmail
         })
     })
 }
