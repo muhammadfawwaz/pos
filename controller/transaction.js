@@ -11,7 +11,7 @@ exports.add = (req,res) => {
     var money = req.body.money
     var change = req.body.change
 
-    db.Cashier.findOne({
+    db.Cashier.fineOne({
         where: {
             email: cashierEmail
         },
