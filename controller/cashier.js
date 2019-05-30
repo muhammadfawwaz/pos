@@ -4,7 +4,7 @@ const momentz = require('moment-timezone')
 exports.selectCashier = (req,res) => {
     var email = req.body.email
 
-    db.Cashier.sync({force: true}).then(function () {
+    db.Cashier.sync({force: false}).then(function () {
         db.Cashier.findAll({
             where: {
                 emailOwner: email
