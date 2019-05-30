@@ -30,7 +30,17 @@ exports.add = (req,res) => {
             cashier.month = month
             cashier.total = cashier.total + 1
         }
-        cashier.reload()
+        cashier.reload().then(rel => {
+            db.Cashier.update({
+                month: cashier.month,
+                perMonth: cashier.perMonth,
+                total: cashier.total
+            }, {
+                where: {
+                    email: cashier.cashierEmail
+                }
+            })
+        })
     })
 
     // db.Cashier.update({
