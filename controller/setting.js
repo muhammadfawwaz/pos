@@ -24,13 +24,13 @@ exports.update = (req,res) => {
     var b = req.body
     // var a = b.toString()
     // var c = JSON.parse(a)
-    console.log(b)
+    // console.log(b)
 
     var email = b.email
     var store = b.store
     var addr = b.address
 
-    console.log(email, store, addr)
+    console.log(store)
 
     db.Setting.update({
         store: store,
@@ -40,7 +40,7 @@ exports.update = (req,res) => {
             email: email
         }
     }).then(result => {
-        console.log(result)
+        // console.log(result)
         res.json({
             status: 200,
             message: 'success',
