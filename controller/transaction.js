@@ -37,7 +37,7 @@ exports.add = (req,res) => {
                 total: cashier.total
             }, {
                 where: {
-                    email: cashier.cashierEmail
+                    email: cashier.email
                 }
             })
         })
