@@ -50,6 +50,7 @@ exports.addCashier = (req,res) => {
                 message: 'success'
             })
         }).catch(err => {
+            console.log(err)
             return res.json({
                 status: 401,
                 email: email,
