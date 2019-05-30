@@ -21,26 +21,26 @@ exports.add = (req,res) => {
         var d = new Date()
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
         // console.log(cashier.month,month)
+        var newMonth = cashier.month
+        var newPerMonth
+        var newTotal
         if(cashier.month == month) {
-            cashier.perMonth = cashier.perMonth + 1
-            cashier.total = cashier.total + 1
+            newPerMonth = cashier.perMonth + 1
+            newTotal = cashier.total + 1
         }
         else {
-            cashier.perMonth = 1
-            cashier.month = month
-            cashier.total = cashier.total + 1
+            newPerMonth = 1
+            newMonth = month
+            newTotal = cashier.total + 1
         }
-        cashier.reload().then(() => {
-            console.log(cashier.total)
-            db.Cashier.update({
-                month: cashier.month,
-                perMonth: cashier.perMonth,
-                total: cashier.total
-            }, {
-                where: {
-                    email: cashier.email
-                }
-            })
+        db.Cashier.update({
+            month: newMonth,
+            perMonth: newPerMonth,
+            total: newTotal
+        }, {
+            where: {
+                email: cashier.email
+            }
         })
     })
 
