@@ -32,7 +32,7 @@ exports.addCashier = (req,res) => {
     var branch = req.body.branch
     var d = new Date()
     var month = momentz.tz(d.getMonth(),'MM','Asia/Jakarta').month()
-    console.log(month)
+    console.log(d.getMonth(),month,branch)
 
     // db.Cashier.sync({force: false}).then(function () {
         db.Cashier.create({
