@@ -25,11 +25,11 @@ exports.add = (req,res) => {
         var newPerMonth = cashier.perMonth
         var newTotal
         if(cashier.month == month) {
-            newPerMonth[parseInt(mount) - 1] = cashier.perMonth[parseInt(mount) - 1] + 1
+            newPerMonth[parseInt(month) - 1] = cashier.perMonth[parseInt(month) - 1] + 1
             newTotal = cashier.total + 1
         }
         else {
-            newPerMonth[parseInt(mount) - 1]  = 1
+            newPerMonth[parseInt(month) - 1]  = 1
             newMonth = month
             newTotal = cashier.total + 1
         }
