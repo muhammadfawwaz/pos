@@ -31,7 +31,7 @@ exports.addCashier = (req,res) => {
     var emailOwner = req.body.emailOwner
     var branch = req.body.branch
     var d = new Date()
-    var month = momentz.tz(d.getMonth(),'MM','UTC').clone().tz('Asia/Jakarta').month()
+    var month = momentz.tz(d.getMonth+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
     console.log(d.getMonth(),month,branch)
 
     // db.Cashier.sync({force: false}).then(function () {
