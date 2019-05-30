@@ -41,7 +41,7 @@ exports.addCashier = (req,res) => {
             password: password,
             emailOwner: emailOwner,
             month: month,
-            perMonth: [],
+            perMonth: [0,0,0,0,0,0,0,0,0,0,0,0],
             total: 0,
             branch: branch
         }).then(result => {

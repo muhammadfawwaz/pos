@@ -22,14 +22,14 @@ exports.add = (req,res) => {
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
         // console.log(cashier.month,month)
         var newMonth = cashier.month
-        var newPerMonth
+        var newPerMonth = cashier.perMonth
         var newTotal
         if(cashier.month == month) {
-            newPerMonth = cashier.perMonth + 1
+            newPerMonth[parseInt(mount) - 1] = cashier.perMonth[parseInt(mount) - 1] + 1
             newTotal = cashier.total + 1
         }
         else {
-            newPerMonth = 1
+            newPerMonth[parseInt(mount) - 1]  = 1
             newMonth = month
             newTotal = cashier.total + 1
         }
