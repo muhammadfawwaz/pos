@@ -1,7 +1,7 @@
 const db = require('../models/db')
 
 exports.selectLog = (req,res) => {
-    // var email = req.body.email
+    var email = req.body.email
 
     // db.Trans.findAll({
     //     where: {
@@ -11,20 +11,24 @@ exports.selectLog = (req,res) => {
     //     res.json(result)
     // })
 
-    db.Trans.destroy({
-        where: {},
-        truncate: true
+    db.Cashier.findAll().then(result => {
+        res.json(result)
     })
-    db.Cashier.destroy({
-        where: {},
-        truncate: true
-    })
-    db.Owner.destroy({
-        where: {},
-        truncate: true
-    })
-    db.Setting.destroy({
-        where: {},
-        truncate: true
-    })
+
+    // db.Trans.destroy({
+    //     where: {},
+    //     truncate: true
+    // })
+    // db.Cashier.destroy({
+    //     where: {},
+    //     truncate: true
+    // })
+    // db.Owner.destroy({
+    //     where: {},
+    //     truncate: true
+    // })
+    // db.Setting.destroy({
+    //     where: {},
+    //     truncate: true
+    // })
 }
