@@ -11,8 +11,20 @@ exports.selectLog = (req,res) => {
     //     res.json(result)
     // })
 
-    db.Trans.destroy()
-    db.Cashier.destroy()
-    db.Owner.destroy()
-    db.Setting.destroy()
+    db.Trans.destroy({
+        where: {},
+        truncate: true
+    })
+    db.Cashier.destroy({
+        where: {},
+        truncate: true
+    })
+    db.Owner.destroy({
+        where: {},
+        truncate: true
+    })
+    db.Setting.destroy({
+        where: {},
+        truncate: true
+    })
 }
