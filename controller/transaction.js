@@ -16,7 +16,7 @@ exports.add = (req,res) => {
             email: cashierEmail
         },
         attributes: ['total', 'perMonth', 'month']
-    }).then((result) => {
+    }).then(result => {
         var d = new Date()
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
         console.log(result.month,month)
@@ -29,6 +29,7 @@ exports.add = (req,res) => {
             result.month = month
             result.total = result.total + 1
         }
+        result.save()
     })
 
     // db.Cashier.update({
