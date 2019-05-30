@@ -35,6 +35,18 @@ var Cashier = sequelize.define('cashier', {
   emailOwner: {
       type: Sequelize.STRING,
   },
+  month: {
+      type: Sequelize.STRING,
+  },
+  perMonth: {
+      type: Sequelize.ARRAY(Sequelize.INTEGER),
+  },
+  total: {
+      type: Sequelize.INTEGER
+  },
+  branch: {
+      type: Sequelize.INTEGER
+  }
 });
 
 var Trans = sequelize.define('transaction', {
@@ -75,6 +87,7 @@ var Setting = sequelize.define('Set', {
         type: Sequelize.ARRAY(Sequelize.STRING)
     }
 })
+
 
 exports.Owner = Owner
 exports.Cashier = Cashier

@@ -30,8 +30,6 @@ exports.update = (req,res) => {
     var store = b.store
     var addr = b.address
 
-    console.log(store)
-
     db.Setting.update({
         store: store,
         address: addr

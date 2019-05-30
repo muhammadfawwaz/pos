@@ -1,4 +1,5 @@
 const db = require('../models/db')
+const momentz = require('moment-timezone')
 
 exports.selectCashier = (req,res) => {
     var email = req.body.email
@@ -9,7 +10,16 @@ exports.selectCashier = (req,res) => {
                 emailOwner: email
             }
         }).then(result => {
-            res.json(result)
+            db.Setting.findOne({
+                where: {
+                    email: email
+                }
+            }).then(result1 => {
+                res.json({
+                    result: result,
+                    result1: result1
+                })
+            })
         })
     // })
 }
@@ -19,13 +29,20 @@ exports.addCashier = (req,res) => {
     var name = req.body.name
     var password = req.body.password
     var emailOwner = req.body.emailOwner
+    var branch = req.body.branch
+    var d = new Date()
+    var month = momentz.tz(d.getMonth(),'MM','Asia/Jakarta')
 
     // db.Cashier.sync({force: false}).then(function () {
         db.Cashier.create({
             email: email,
             name: name,
             password: password,
-            emailOwner: emailOwner
+            emailOwner: emailOwner,
+            month: month,
+            perMonth: [],
+            total: 0,
+            branch: branch
         }).then(result => {
             return res.json({
                 status: 200,
