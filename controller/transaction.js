@@ -26,11 +26,11 @@ exports.add = (req,res) => {
             cashier.total = cashier.total + 1
         }
         else {
-            cashier.perMonth = 0
+            cashier.perMonth = 1
             cashier.month = month
             cashier.total = cashier.total + 1
         }
-        cashier.reload().then(rel => {
+        cashier.reload().then(() => {
             console.log(cashier.total)
             db.Cashier.update({
                 month: cashier.month,
