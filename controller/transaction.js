@@ -29,7 +29,7 @@ exports.add = (req,res) => {
             result.month = month
             result.total = result.total + 1
         }
-        result.save()
+        result.reload()
     })
 
     // db.Cashier.update({
