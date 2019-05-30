@@ -15,7 +15,7 @@ exports.add = (req,res) => {
         where: {
             email: cashierEmail
         },
-        attributes: ['total, perMonth, month']
+        attributes: ['total', 'perMonth', 'month']
     }).then(result => {
         var d = new Date()
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
