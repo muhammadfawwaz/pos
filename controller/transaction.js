@@ -14,21 +14,23 @@ exports.add = (req,res) => {
     db.Cashier.findOne({
         where: {
             email: cashierEmail
-        }
+        },
+        attributes: ['total, perMonth, month']
     }).then(result => {
         var d = new Date()
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
-        result.total += 1
         console.log(result.month,month)
         if(result.month == month) {
             result.updateAttributes({
-                perMonth: result.perMonth + 1
+                perMonth: result.perMonth + 1,
+                total: result.total + 1
             })
         }
         else {
             result.updateAttributes({
                 perMonth: 0,
-                month: month
+                month: month,
+                total: result.total + 1
             })
         }
     })
