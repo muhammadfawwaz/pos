@@ -21,13 +21,13 @@ exports.add = (req,res) => {
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
         console.log(result.month,month)
         if(result.month == month) {
-            result.updateAttributes({
+            result.update({
                 perMonth: result.perMonth + 1,
                 total: result.total + 1
             })
         }
         else {
-            result.updateAttributes({
+            result.update({
                 perMonth: 0,
                 month: month,
                 total: result.total + 1
