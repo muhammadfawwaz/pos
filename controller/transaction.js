@@ -11,25 +11,26 @@ exports.add = (req,res) => {
     var money = req.body.money
     var change = req.body.change
 
+    console.log(cashierEmail)
+
     db.Cashier.findOne({
         where: {
             email: cashierEmail
         },
-        attributes: ['total', 'perMonth', 'month']
-    }).then(result => {
+    }).then(cashier => {
         var d = new Date()
         var month = momentz.tz(d.getMonth()+1,'MM','UTC').clone().tz('Asia/Jakarta').format('M')
-        console.log(result.month,month)
-        if(result.month == month) {
-            result.perMonth = result.perMonth + 1
-            result.total = result.total + 1
+        console.log(cashier.month,month)
+        if(cashier.month == month) {
+            cashier.perMonth = cashier.perMonth + 1
+            cashier.total = cashier.total + 1
         }
         else {
-            result.perMonth = 0
-            result.month = month
-            result.total = result.total + 1
+            cashier.perMonth = 0
+            cashier.month = month
+            cashier.total = cashier.total + 1
         }
-        result.reload()
+        cashier.reload()
     })
 
     // db.Cashier.update({
