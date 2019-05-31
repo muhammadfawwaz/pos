@@ -13,6 +13,13 @@ exports.processRegister = (req,res) => {
         })
     // })
 
+    db.Product.create({
+        email: email,
+        name: [],
+        fund: [],
+        price: []
+    })
+
     db.Owner.create({
         email: email,
         name: name,

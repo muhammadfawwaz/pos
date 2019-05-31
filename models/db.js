@@ -74,6 +74,10 @@ var Trans = sequelize.define('transaction', {
   change: {
       type: Sequelize.INTEGER,
   },
+  status: {
+      type: Sequelize.STRING,
+      defaultValue: 'settled'
+  }
 });
 
 var Setting = sequelize.define('Set', {
@@ -88,7 +92,23 @@ var Setting = sequelize.define('Set', {
     }
 })
 
+var Product = sequelize.define('Product', {
+    email: {
+        type: Sequelize.STRING,
+    },
+    name: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    },
+    fund: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    },
+    price: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    },
+}) 
 
+
+exports.Product = Product
 exports.Owner = Owner
 exports.Cashier = Cashier
 exports.Trans = Trans

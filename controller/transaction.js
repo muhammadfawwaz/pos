@@ -10,6 +10,10 @@ exports.add = (req,res) => {
     var total = req.body.total
     var money = req.body.money
     var change = req.body.change
+    var status
+
+    if(change < 0) status = change
+    else status = 'settled'
 
     console.log(cashierEmail)
 
@@ -70,7 +74,8 @@ exports.add = (req,res) => {
         price: price,
         total: total,
         money: money,
-        change: change
+        change: change,
+        status: status
     }).then(result => {
         res.json({
             status: 200,
