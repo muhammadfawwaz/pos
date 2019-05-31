@@ -3,7 +3,7 @@ const db = require('../models/db')
 exports.select = (req,res) => {
     var email = req.body.email
 
-    db.Product.findAll({
+    db.Product.findOne({
         where: {
             email: email
         }
