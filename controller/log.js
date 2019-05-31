@@ -3,17 +3,17 @@ const db = require('../models/db')
 exports.selectLog = (req,res) => {
     var email = req.body.email
 
-    // db.Trans.findAll({
-    //     where: {
-    //         ownerEmail: email
-    //     }
-    // }).then(result => {
-    //     res.json(result)
-    // })
-
-    db.Cashier.findAll().then(result => {
+    db.Trans.findAll({
+        where: {
+            ownerEmail: email
+        }
+    }).then(result => {
         res.json(result)
     })
+
+    // db.Cashier.findAll().then(result => {
+    //     res.json(result)
+    // })
 
     // db.Trans.destroy({
     //     where: {},
