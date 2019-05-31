@@ -13,14 +13,14 @@ exports.processRegister = (req,res) => {
         })
     // })
 
-    db.Product.sync({force: true}).then(function () {
+    // db.Product.sync({force: true}).then(function () {
         db.Product.create({
             email: email,
             name: [],
             fund: [],
             price: []
         })
-    })
+    // })
 
     db.Owner.create({
         email: email,

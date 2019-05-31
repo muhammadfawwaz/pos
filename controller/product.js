@@ -18,7 +18,7 @@ exports.add = (req,res) => {
     var fund = req.body.fund
     var price = req.body.price
 
-    db.findOne({
+    db.Product.findOne({
         where: {
             email: email
         }
@@ -52,7 +52,7 @@ exports.delete = (req,res) => {
     var index = req.body.index
     var email = req.body.email
 
-    db.findOne({
+    db.Product.findOne({
         where: {
             email: email
         }
