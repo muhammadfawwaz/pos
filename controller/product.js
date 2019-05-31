@@ -61,9 +61,9 @@ exports.delete = (req,res) => {
         var newFund = result.fund
         var newPrice = result.price
 
-        newName.splice(index,1)
-        newFund.push(index,1)
-        newPrice.push(index,1)
+        newName = newName.splice(index,1)
+        newFund = newFund.push(index,1)
+        newPrice = newPrice.push(index,1)
 
         db.Product.update({
             name: newName,
