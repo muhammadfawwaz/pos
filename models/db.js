@@ -76,7 +76,6 @@ var Trans = sequelize.define('transaction', {
   },
   status: {
       type: Sequelize.STRING,
-      defaultValue: 'settled'
   }
 });
 

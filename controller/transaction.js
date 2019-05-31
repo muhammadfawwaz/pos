@@ -65,23 +65,24 @@ exports.add = (req,res) => {
     //         result.perMonth = 0 
     //     }
     // })
-
-    db.Trans.create({
-        ownerEmail: ownerEmail,
-        cashierEmail: cashierEmail,
-        name: name,
-        count: count,
-        price: price,
-        total: total,
-        money: money,
-        change: change,
-        status: status
-    }).then(result => {
-        res.json({
-            status: 200,
-            message: 'success',
+    db.Trans.sync({force: true}).then(function () {
+        db.Trans.create({
             ownerEmail: ownerEmail,
-            cashierEmail: cashierEmail
+            cashierEmail: cashierEmail,
+            name: name,
+            count: count,
+            price: price,
+            total: total,
+            money: money,
+            change: change,
+            status: status
+        }).then(result => {
+            res.json({
+                status: 200,
+                message: 'success',
+                ownerEmail: ownerEmail,
+                cashierEmail: cashierEmail
+            })
         })
     })
 }
