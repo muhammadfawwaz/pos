@@ -65,7 +65,7 @@ exports.add = (req,res) => {
     //         result.perMonth = 0 
     //     }
     // })
-    db.Trans.sync({force: true}).then(function () {
+    // db.Trans.sync({force: true}).then(function () {
         db.Trans.create({
             ownerEmail: ownerEmail,
             cashierEmail: cashierEmail,
@@ -84,5 +84,5 @@ exports.add = (req,res) => {
                 cashierEmail: cashierEmail
             })
         })
-    })
+    // })
 }
